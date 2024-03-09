@@ -10,7 +10,13 @@ const { error, log } = require("console");
 const { verify } = require("crypto");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin : ["https://e-commerce-website.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 //database connection with mongodb
 mongoose.connect("mongodb+srv://akshay_ecommerce:matpuchna@cluster0.mvr5lnw.mongodb.net/e-commerce");
